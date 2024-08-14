@@ -1,0 +1,65 @@
+{% extends "index.html" %}
+
+{% block encabezado %}
+    {% include "encabezado.html" %}
+{% endblock %}
+
+{% block menu %}
+    {% include "administrador/menu.html" %}
+{% endblock %}
+
+{% block contenido %}
+<!-- Sección de título del módulo administrador -->
+<h3 class="text-center mt-3 fw-bold" style="color: #2c3e50; font-family: 'Poppins', sans-serif;">
+    MÓDULO ADMINISTRADOR
+</h3>
+
+<br />
+
+<!-- Contenedor principal con fondo, bordes redondeados y padding -->
+<div class="row justify-content-center align-items-center" style="margin: 0 auto !important; width: 60%; background-color: #f7f9fc; border-radius: 15px; padding: 3rem; box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1);">
+
+  <!-- Primera columna: Gestionar Usuarios -->
+  <div class="col-md-4 mb-5 d-flex flex-column align-items-center">
+    <a href="#" style="text-decoration: none;">
+      <!-- Ícono con color y tamaño personalizado -->
+      <div class="icon" style="font-size: 8rem; color: #2980b9; transition: transform 0.3s;">
+        <i class="fa fa-user fa-fade"></i>
+      </div>
+      <!-- Texto descriptivo -->
+      <div class="fw-bold mt-3" style="color: #34495e; font-family: 'Poppins', sans-serif;">Gestionar Usuarios</div>
+    </a>
+  </div>
+
+  <!-- Segunda columna: Ver Solicitudes -->
+  <div class="col-md-4 mb-5 d-flex flex-column align-items-center">
+    <a href="#" style="text-decoration: none;">
+      <!-- Ícono con color y tamaño personalizado -->
+      <div class="icon" style="font-size: 8rem; color: #e74c3c; transition: transform 0.3s;">
+        <i class="fa fa-eye fa-fade"></i>
+      </div>
+      <!-- Texto descriptivo -->
+      <div class="fw-bold mt-3" style="color: #34495e; font-family: 'Poppins', sans-serif;">Ver Solicitudes</div>
+    </a>
+  </div>
+
+  <!-- Tercera columna: Reportes -->
+  <div class="col-md-4 mb-5 d-flex flex-column align-items-center">
+    <a href="#" style="text-decoration: none;">
+      <!-- Ícono con color y tamaño personalizado -->
+      <div class="icon" style="font-size: 8rem; color: #8e44ad; transition: transform 0.3s;">
+        <i class="fa fa-clipboard fa-fade"></i>
+      </div>
+      <!-- Texto descriptivo -->
+      <div class="fw-bold mt-3" style="color: #34495e; font-family: 'Poppins', sans-serif;">Reportes</div>
+    </a>
+  </div>
+
+</div>
+
+
+{% endblock %}
+
+{% block piePagina %}
+    {% include "piePagina.html" %}
+{% endblock %}

@@ -1,0 +1,123 @@
+{% extends "index.html" %} {% block encabezado %} {% include "encabezado.html"
+%} {% endblock %} {% block contenido %}
+<!-- Script para Google reCAPTCHA -->
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
+<!-- Contenedor principal del formulario de inicio de sesión -->
+<div class="iniciarSesion mt-3 w-50" style="margin: 0 auto">
+  <div class="card shadow-lg w-75 mx-auto">
+    <div class="card-header text-center text-white bg-primary fw-bold">
+      INGRESAR AL SISTEMA
+    </div>
+    <div class="card-body">
+      <form action="/login/" method="post" class="w-100">
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="txtUser" class="fw-bold">Usuario:</label>
+          <input
+            type="text"
+            name="txtUser"
+            id="txtUser"
+            class="form-control"
+            placeholder="Su Correo Electrónico"
+            required
+          />
+        </div>
+        <div class="mb-3">
+          <label for="txtPassword" class="fw-bold">Contraseña:</label>
+          <input
+            type="password"
+            name="txtPassword"
+            id="txtPassword"
+            class="form-control"
+            placeholder="Su Contraseña"
+            required
+          />
+        </div>
+        <div>
+          <button class="btn btn-primary">Ingresar</button>
+          <button class="btn btn-secondary">Cancelar</button>
+          <!-- Botón para Registro -->
+        </div>
+        <div class="form-group row mt-3">
+          <div class="col-lg-12 text-center">
+            <a
+              href="#"
+              class="btn btn-link text-black"
+              data-bs-toggle="modal"
+              data-bs-target="#modalRecuperarClave"
+            >
+              ¿Olvidaste tu contraseña?
+            </a>
+          </div>
+          <div class="col-lg-12 text-center">
+            <!-- Enlace para redirigir a la página de registro -->
+            <a href="registro/" class="btn btn-success"
+              >Registrarse</a
+            >
+            <!-- <a href="frmRegistroUsuario.html" class="btn btn-link text-black">
+              Crear cuenta nueva
+            </a> -->
+          </div>
+        </div>
+        <div class="mt-2 text-center">
+          <div
+            class="g-recaptcha"
+            data-sitekey="6LdK8rYpAAAAANA28A0ocJfh_VbuSjMqVwwf8h8b"
+          ></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para recuperación de contraseña -->
+<div class="modal fade" id="modalRecuperarClave">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Recuperar Contraseña</h4>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+        ></button>
+      </div>
+      <form action="/recuperarClave/" method="post">
+        {% csrf_token %}
+        <div class="modal-body">
+          <div class="mt-3">
+            <input
+              type="email"
+              name="txtCorreo"
+              id="txtCorreo"
+              class="form-control"
+              placeholder="Ingrese su Correo Electrónico"
+              required
+            />
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button
+            type="submit"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
+          >
+            Recuperar
+          </button>
+          <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+            Cerrar
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- Alerta de mensaje -->
+{% if mensaje %}
+<script>
+  swal.fire("Inicio de Sesión", "{{ mensaje }}", "info");
+</script>
+{% endif %} {% endblock %} {% block piePagina %} {% include "piePagina.html" %}
+{% endblock %}

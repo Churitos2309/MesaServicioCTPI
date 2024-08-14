@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #2c3e50; /* Color de texto principal */
+    background-color: #f0f2f5; /* Fondo suave y moderno */
+}
+
+header {
+    height: 150px;
+    width: 100%;
+    background-color: #34495e; /* Fondo del encabezado */
+    color: #ecf0f1; /* Color del texto del encabezado */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+section {
+    min-height: 400px;
+    width: 100%;
+    padding: 2rem;
+}
+
+nav {
+    height: 50px;
+    width: 100%;
+    background-color: #34495e; /* Fondo de la barra de navegación */
+}
+
+footer {
+    height: 150px;
+    width: 100%;
+    background-color: #34495e; /* Fondo del pie de página */
+    color: #ecf0f1; /* Color del texto del pie de página */
+    padding: 1.5rem;
+    border-radius: 8px; /* Bordes redondeados para el pie de página */
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.verdeSena {
+    background-color: rgb(57, 169, 0);
+}
+
+.textoPiePagina {
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: #ecf0f1; /* Color del texto del pie de página */
+}
+
+.body-index {
+    background-color: #f0f2f5; /* Fondo suave y moderno */
+    font-family: 'Poppins', sans-serif; /* Tipografía moderna */
+    color: #2c3e50; /* Color de texto principal */
+}
+
+.container-index {
+    background-color: #ffffff; /* Fondo blanco para el contenido principal */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    padding: 2rem; /* Espaciado interno */
+    margin-top: 2rem; /* Espaciado superior */
+}
+
+.navbar {
+    background-color: #34495e; /* Fondo de la barra de navegación */
+    border-radius: 5px; /* Bordes redondeados para la barra de navegación */
+}
+
+.navbar-brand {
+    font-weight: 700; /* Peso de fuente más grueso */
+    font-size: 1.3rem;
+    color: #ecf0f1; /* Color de la marca */
+}
+
+.navbar-nav .nav-link {
+    color: #ecf0f1 !important; /* Color de los enlaces de navegación */
+    margin-right: 1rem;
+    font-weight: 500; /* Peso de fuente más ligero */
+}
+
+.navbar-nav .nav-link:hover {
+    color: #bdc3c7 !important; /* Color al hacer hover */
+    text-decoration: underline; /* Subrayado al hacer hover */
+}
+
+.dropdown-menu {
+    background-color: #ffffff; /* Fondo del menú desplegable */
+    border-radius: 8px; /* Bordes redondeados */
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.1); /* Sombra para el menú desplegable */
+}
+
+.dropdown-item {
+    color: #2c3e50; /* Color del texto de los ítems del menú desplegable */
+}
+
+.dropdown-item:hover {
+    background-color: #f0f2f5; /* Fondo al hacer hover en el menú desplegable */
+}

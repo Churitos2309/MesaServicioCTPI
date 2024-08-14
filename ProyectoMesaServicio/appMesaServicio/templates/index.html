@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% load static %}
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <!-- SweetAlert2 para alertas modernas -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <!-- Font Awesome para íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- Archivo CSS personalizado -->
+    <link rel="stylesheet" href="{% static '../static/css/app.css' %}">
+    <!-- Archivo JS personalizado -->
+    <script src="{% static '../static/js/app.js' %}"></script>
+    
+
+    <title>Mesa de Servicio CTPI - Cauca</title>
+
+    <!-- Estilos personalizados para mejorar la apariencia -->
+    
+</head>
+
+<body class="body-index">
+    <div class="container-index">
+        <header>
+            {% block encabezado %}
+                {% include "encabezado.html" %}
+            {% endblock %}
+        </header>
+
+        <div>
+            {% block menu %}
+                {% include "administrador/menu.html" %}
+            {% endblock %}
+        </div>
+
+        <section>
+            {% block contenido %}
+                <!-- Aquí se inserta el contenido específico de cada página -->
+            {% endblock %}
+        </section>
+
+        <footer>
+            {% block piePagina %}
+                {% include "piePagina.html" %}
+            {% endblock %}
+        </footer>
+    </div>
+</body>
+
+</html>

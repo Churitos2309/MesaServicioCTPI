@@ -1,0 +1,72 @@
+{% extends "index.html" %}
+{% block encabezado %}
+    {% include "encabezado.html" %}
+{%endblock %}
+{% block menu %}
+    {% include "administrador/menu.html" %}
+{%endblock %}
+{% block contenido %}
+<!-- Importación de bibliotecas de DataTables y sus extensiones -->
+<script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+<script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.1/js/dataTables.buttons.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.html5.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/3.0.1/js/buttons.print.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/buttons/3.0.1/css/buttons.dataTables.css">
+
+<!-- Título centrado del módulo -->
+<h3 class="text-center fw-bold">GESTIONAR USUARIOS</h3>
+
+<!-- Contenedor de la tabla -->
+<div class="table-responsive w-100" style="margin-bottom: 5rem; margin: 0 auto;">
+    <a href="/vistaRegistrarUsuario/">
+        <button class="btn btn-secondary"><i class="fa fa-user"></i> Agregar</button>
+    </a>
+    <br><br>
+
+    <!-- Tabla con DataTables -->
+    <table id="tblPersonas" class="table table-bordered table-hover">
+        <thead>
+            <tr class="text-center bg-primary text-white">
+                <th>Nombre Completo</th>
+                <th>Correo Electrónico</th>
+                <th>Tipo</th>
+                <th>Foto</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+                {% if usuario.is_superuser is False %}
+                <tr>
+                    <td>{{ usuario.first_name }} {{ usuario.last_name }}</td>
+                    <td>{{ usuario.email }}</td>
+                    <td>{{ usuario.userTipo }}</td>
+                    <td>
+                        {% if usuario.userFoto %}
+                            <img src="/media/{{ usuario.userFoto }}" width="50" height="50" class="rounded-circle">
+                        {% else %}
+                            <img src="/media/user-logo.png" width="50" height="50" class="rounded-circle">
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endif %}
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<!-- Inicialización de DataTables con opciones de exportación -->
+<script>
+    new DataTable('#tblPersonas', {
+        dom: 'Bfrtip',
+        buttons: ['csv', 'excel', 'pdf', 'print']
+    });
+</script>
+{% endblock %}
+{% block piePagina %}
+    {% include "piePagina.html" %}
+{%endblock %}
